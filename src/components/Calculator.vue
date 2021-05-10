@@ -1,9 +1,11 @@
 <template>
-  <div class="hello">
-    <input v-model.number="operand1"/>
-    <input v-model.number="operand2"/>
-    = {{ result }}
-    <div>
+  <div class="main">
+    <div class="calculator">
+      <input v-model.number="operand1"/>
+      <input v-model.number="operand2"/>
+      <span class="result">= {{ result }}</span>
+    </div>
+    <div class="function">
       <button @click="calculator($event)">-</button>
       <button @click="calculator($event)">+</button>
       <button @click="calculator($event)">/</button>
@@ -47,20 +49,26 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  .calculator {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .result {
+    border: black solid 1px;
+    padding: 2px 4px; 
+    border-radius: 4px;
+  }
+  .function {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    
+  }
 </style>
